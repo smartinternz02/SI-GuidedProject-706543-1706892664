@@ -1,0 +1,83 @@
+# Home Decor Module
+
+class Showpiece:
+    def __init__(self, name, material, price):
+        self.name = name
+        self.material = material
+        self.price = price
+
+    def display_info(self):
+        print(f"Name: {self.name}\nMaterial: {self.material}\nPrice: ${self.price:.2f}")
+
+class WallDecor:
+    def __init__(self, name, material, dimensions, price):
+        self.name = name
+        self.material = material
+        self.dimensions = dimensions
+        self.price = price
+
+    def display_info(self):
+        print(f"Name: {self.name}\nMaterial: {self.material}\nDimensions: {self.dimensions}\nPrice: ${self.price:.2f}")
+
+class HomeAccents:
+    def __init__(self, name, category, price):
+        self.name = name
+        self.category = category
+        self.price = price
+
+    def display_info(self):
+        print(f"Name: {self.name}\nCategory: {self.category}\nPrice: ${self.price:.2f}")
+
+class Lamp:
+    def __init__(self, name, material, price, wattage):
+        self.name = name
+        self.material = material
+        self.price = price
+        self.wattage = wattage
+
+    def display_info(self):
+        print(f"Name: {self.name}\nMaterial: {self.material}\nPrice: ${self.price:.2f}\nWattage: {self.wattage}W")
+
+# Handmade Furnitures Module
+
+class BambooFurniture:
+    def __init__(self, name, type, price):
+        self.name = name
+        self.type = type
+        self.price = price
+
+    def display_info(self):
+        print(f"Name: {self.name}\nType: {self.type}\nPrice: ${self.price:.2f}")
+
+class OutdoorFurniture:
+    def __init__(self, name, material, price, weatherproof):
+        self.name = name
+        self.material = material
+        self.price = price
+        self.weatherproof = weatherproof
+
+    def display_info(self):
+        print(f"Name: {self.name}\nMaterial: {self.material}\nPrice: ${self.price:.2f}\nWeatherproof: {self.weatherproof}")
+
+# Tests Module
+
+import unittest
+from home_decor.showpieces_figurines import Showpiece
+from home_decor.wall_decor import WallDecor
+
+class TestHomeDecor(unittest.TestCase):
+    def test_showpiece_info(self):
+        showpiece = Showpiece("Ceramic Vase", "Ceramic", 25.99)
+        self.assertEqual(showpiece.name, "Ceramic Vase")
+        self.assertEqual(showpiece.material, "Ceramic")
+        self.assertAlmostEqual(showpiece.price, 25.99, delta=0.01)
+
+    def test_wall_decor_info(self):
+        wall_decor = WallDecor("Abstract Painting", "Canvas", "24\" x 36\"", 59.99)
+        self.assertEqual(wall_decor.name, "Abstract Painting")
+        self.assertEqual(wall_decor.material, "Canvas")
+        self.assertEqual(wall_decor.dimensions, "24\" x 36\"")
+        self.assertAlmostEqual(wall_decor.price, 59.99, delta=0.01)
+
+if __name__ == "__main__":
+    unittest.main()
